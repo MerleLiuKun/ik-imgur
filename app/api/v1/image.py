@@ -35,20 +35,21 @@ async def uploader(request):
     if not saved_dir.exists():
         saved_dir.mkdir(parents=True)
 
-    with open(saved_file, 'wb') as f:
-        f.write(image_file.body)
     if not saved_file.exists():
-        with PILImage.open(saved_file) as img:
-            width, height = img.size
+        with open(saved_file, 'wb') as f:
+            f.write(image_file.body)
+        if saved_file.exists():
+            with PILImage.open(saved_file) as img:
+                width, height = img.size
 
-        await Image.create(
-            name=name,
-            filename=image_file.name,
-            size=saved_file.stat().st_size,
-            width=width,
-            height=height,
-            path=path_prefix + name
-        )
+            await Image.create(
+                name=name,
+                filename=image_file.name,
+                size=saved_file.stat().st_size,
+                width=width,
+                height=height,
+                path=path_prefix + name
+            )
         return json({
             'status_code': 200,
             'msg': 'ok',
@@ -56,5 +57,5 @@ async def uploader(request):
     else:
         return json({
             'status_code': 10002,
-            'msg': 'error'
+            'msg': 'exists'
         })
