@@ -1,7 +1,21 @@
+# image domain
+# http
 server {
-    listen 80;
+    listen       80;
     server_name  img.example.com;
+    return 301 https://$host$request_uri;
+}
+
+# https
+server {
+    listen        443;
+    server_name   img.example.com;
+
+    ssl_certificate      /path/to/fullchain;
+    ssl_certificate_key  /path/to/privkey;
+
     location /images/ {
-        root /path/to/images ;
+         root /path/to/images;
     }
 }
+
