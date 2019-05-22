@@ -9,7 +9,7 @@ DB_URL = 'database url'
 BASE_CHAR = '9HfX34CFYmtWnpJsBVy8jlSNorichga2w1bEPvxLTA6MduKRQIe0qDUk5OGZz7'
 
 # up file
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+ALLOWED_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.gif'}
 MAX_FILE_SIZE = 1024 * 1024 * 10
 UPLOAD_FOLDER = 'path/to/upload'
 

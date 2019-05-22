@@ -33,11 +33,11 @@ async def uploader(request):
     saved_dir = Path(config.UPLOAD_FOLDER + path_prefix)
     saved_file = saved_dir / name
     if not saved_dir.exists():
-        saved_dir.mkdir()
+        saved_dir.mkdir(parents=True)
 
     with open(saved_file, 'wb') as f:
         f.write(image_file.body)
-    if saved_file.exists():
+    if not saved_file.exists():
         with PILImage.open(saved_file) as img:
             width, height = img.size
 
@@ -47,7 +47,7 @@ async def uploader(request):
             size=saved_file.stat().st_size,
             width=width,
             height=height,
-            path=saved_file
+            path=path_prefix + name
         )
         return json({
             'status_code': 200,
