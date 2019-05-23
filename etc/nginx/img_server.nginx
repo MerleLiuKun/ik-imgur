@@ -1,3 +1,7 @@
+upstream ImgurApi {
+    server unix:/path/to/app_name.sock;
+}
+
 # image domain
 # http
 server {
@@ -15,7 +19,15 @@ server {
     ssl_certificate_key  /path/to/privkey;
 
     location /images/ {
-         root /path/to/images;
+        root /path/to/images;
     }
-}
 
+    location /api/ {
+        proxy_redirect off;
+        proxy_pass http://ImgurApi;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+
+}
