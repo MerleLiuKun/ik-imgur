@@ -6,7 +6,7 @@ from sanic.response import json
 
 import config
 from app.models import Image
-from app.utils.path_handler import generate_hash_name
+from app.utils.path_handler import generate_hash_name, generate_hash_id
 
 bp = Blueprint('image')
 
@@ -46,6 +46,7 @@ async def uploader(request):
                 name=name,
                 filename=image_file.name,
                 size=saved_file.stat().st_size,
+                hash_id=generate_hash_id(),
                 width=width,
                 height=height,
                 path=path_prefix + name
