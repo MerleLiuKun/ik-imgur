@@ -5,7 +5,7 @@ from pathlib import Path
 import config
 
 
-def generate_hash_name(filename):
+async def generate_hash_name(filename):
     """
     基于原始文件名生成存储的文件名(含有文件夹)
     :param filename:
@@ -24,7 +24,7 @@ CONSTANT_LENGTH = len(CONSTANT_CHAR)
 
 
 # TODO
-def generate_hash_id():
+async def generate_hash_id():
     source = int(time.time())
     code_arr = ''
     while source > 0:

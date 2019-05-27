@@ -29,6 +29,17 @@ class Image(BaseModel):
     def __repr__(self):
         return f"Image(ID={self.hash_id}, filename={self.filename})"
 
+    @classmethod
+    async def create(cls, **kwargs):
+        """
+        :param kwargs: image params
+        :return:
+        """
+        if 'hash_id' not in kwargs:
+            kwargs['hash_id'] = await generate_hash_id()
+        obj = await super().create(**kwargs)
+        return obj
+
 
 async def create_image(**data):
     if 'filename' not in data:
@@ -36,6 +47,5 @@ async def create_image(**data):
     if 'name' not in data and 'path' not in data:
         name, path_prefix = generate_hash_name(data['filename'])
         data['name'], data['path'] = name, path_prefix + name
-    data['hash_id'] = generate_hash_id()
     img = await Image.create(**data)
     return img

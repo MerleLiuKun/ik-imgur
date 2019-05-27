@@ -28,35 +28,42 @@ async def uploader(request):
         })
 
     # do save
-    name, path_prefix = generate_hash_name(image_file.name)
+    name, path_prefix = await generate_hash_name(image_file.name)
 
     saved_dir = Path(config.UPLOAD_FOLDER + path_prefix)
     saved_file = saved_dir / name
+    # build relative path
+    relative_path = '/'.join([path_prefix, name])
     if not saved_dir.exists():
         saved_dir.mkdir(parents=True)
 
-    if not saved_file.exists():
-        with open(saved_file, 'wb') as f:
-            f.write(image_file.body)
-        if saved_file.exists():
-            with PILImage.open(saved_file) as img:
-                width, height = img.size
+    with open(saved_file, 'wb') as f:
+        f.write(image_file.body)
+    if saved_file.exists():
+        with PILImage.open(saved_file) as img:
+            width, height = img.size
 
-            await Image.create(
-                name=name,
-                filename=image_file.name,
-                size=saved_file.stat().st_size,
-                hash_id=generate_hash_id(),
-                width=width,
-                height=height,
-                path=path_prefix + name
-            )
+        obj = await Image.create(
+            name=name,
+            filename=image_file.name,
+            size=saved_file.stat().st_size,
+            width=width,
+            height=height,
+            path=relative_path
+        )
         return json({
             'status_code': 200,
             'msg': 'ok',
+            'data': {
+                'image_id': obj.hash_id,
+                'url': config.VISIT_URI_PREFIX + obj.path,
+                'relative_path': obj.path,
+                'width': width,
+                'height': height,
+            }
         })
     else:
         return json({
             'status_code': 10002,
-            'msg': 'exists'
+            'msg': 'save error',
         })
