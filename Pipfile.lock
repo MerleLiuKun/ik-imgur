@@ -139,10 +139,10 @@
         },
         "tortoise-orm": {
             "hashes": [
-                "sha256:bcff3d94d8de10ebcfd4405fce0a483af97178fca5addaa5a8e97711d3e35afd"
+                "sha256:fa56206cd7be7c3037dacf8e3af1208be83e119576e527f918e97fe1dd1ed734"
             ],
             "index": "pypi",
-            "version": "==0.11.11"
+            "version": "==0.11.12"
         },
         "ujson": {
             "hashes": [

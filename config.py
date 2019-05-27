@@ -14,6 +14,6 @@ MAX_FILE_SIZE = 1024 * 1024 * 10
 UPLOAD_FOLDER = 'path/to/upload'
 
 try:
-    from local_settings import *
+    from local_settings import *  # noqa
 except ImportError:
     pass

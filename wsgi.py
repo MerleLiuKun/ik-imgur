@@ -1,6 +1,5 @@
-from app import create_app
-
 import config
+from app import create_app
 from app.extensions import init_db
 
 app = create_app()
