@@ -18,6 +18,8 @@ server {
     ssl_certificate      /path/to/fullchain;
     ssl_certificate_key  /path/to/privkey;
 
+    client_max_body_size 15m;  # 控制 body 的大小
+
     location /images/ {
         root /path/to/images;
     }

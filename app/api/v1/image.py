@@ -3,10 +3,11 @@ from pathlib import Path
 from PIL import Image as PILImage
 from sanic import Blueprint
 from sanic.response import json
+from werkzeug.utils import secure_filename
 
 import config
 from app.models import Image
-from app.utils.path_handler import generate_hash_name, generate_hash_id
+from app.utils.path_handler import generate_hash_name
 
 bp = Blueprint('image')
 
@@ -16,6 +17,8 @@ def allowed_file(filename):
     return p.suffix in config.ALLOWED_EXTENSIONS
 
 
+# TODO 暂时没有发现 sanic 控制上传文件大小的处理
+# 暂时以 Nginx 来控制
 @bp.route('/image/simple/upload', methods=['POST'])
 async def uploader(request):
     image_file = request.files.get('file')
@@ -28,7 +31,7 @@ async def uploader(request):
         })
 
     # do save
-    name, path_prefix = await generate_hash_name(image_file.name)
+    name, path_prefix = await generate_hash_name(secure_filename(image_file.name))
 
     saved_dir = Path(config.UPLOAD_FOLDER + path_prefix)
     saved_file = saved_dir / name
