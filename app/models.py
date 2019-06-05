@@ -19,6 +19,7 @@ class Image(BaseModel):
     width = fields.IntField(default=0)
     height = fields.IntField(default=0)
     path = fields.CharField(max_length=255, null=True)
+    save_type = fields.CharField(max_length=100)
 
     class Meta:
         table = 'image'

@@ -25,7 +25,7 @@ CONSTANT_LENGTH = len(CONSTANT_CHAR)
 
 # TODO
 async def generate_hash_id():
-    source = int(time.time())
+    source = int(time.time_ns())
     code_arr = ''
     while source > 0:
         code_arr += CONSTANT_CHAR[source % CONSTANT_LENGTH]
