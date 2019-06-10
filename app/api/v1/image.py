@@ -37,6 +37,12 @@ def build_visit_uri(s_type):
 async def uploader(request):
     image_file = request.files.get('file')
 
+    if not image_file:
+        return json({
+            'status_code': 10003,
+            'msg': 'Must provide a file.'
+        })
+
     save_type = request.form.get('save_type')
 
     if not save_type:

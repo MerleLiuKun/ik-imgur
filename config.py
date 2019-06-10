@@ -1,6 +1,7 @@
 # the module config.
 
 DEBUG = True
+SENTRY_DSN = ''
 
 # DB setting
 DB_URL = 'database url'
