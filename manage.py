@@ -7,7 +7,7 @@ from tortoise import Tortoise, run_async
 from tortoise.exceptions import IntegrityError
 
 from app.extensions import init_db
-from app.models import create_image
+from app.models.image import create_image
 
 
 async def init():
