@@ -13,6 +13,7 @@ click = ">=7.0"
 Pillow= ">=6.0.0"
 cos-python-sdk-v5 = ">=1.6.9"
 sentry-sdk = "==0.9.0"
+aiomysql = ">=0.0.20"
 
 [requires]
 python_version = "3.6"

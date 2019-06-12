@@ -2,6 +2,8 @@ from tortoise import fields
 from tortoise.models import Model
 from tortoise.models import ModelMeta as _ModelMeta
 
+IGNORE_ATTRS = []
+
 
 class PropertyHolder(type):
     """
@@ -14,7 +16,7 @@ class PropertyHolder(type):
         new_cls.property_fields = []
 
         for attr in list(attrs) + sum([list(vars(base)) for base in bases], []):
-            if attr.startswith('_'):
+            if attr.startswith('_') or attr in IGNORE_ATTRS:
                 continue
             if isinstance(getattr(new_cls, attr), property):
                 new_cls.property_fields.append(attr)
