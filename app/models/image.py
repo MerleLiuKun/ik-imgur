@@ -1,14 +1,8 @@
 from tortoise import fields
-from tortoise.models import Model
 
 from app.utils.path_handler import generate_hash_id, generate_hash_name
 
-
-class BaseModel(Model):
-    created_at = fields.DatetimeField(auto_now_add=True)
-
-    class Meta:
-        abstract = True
+from .base import BaseModel
 
 
 class Image(BaseModel):

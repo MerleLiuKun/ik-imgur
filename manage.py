@@ -3,11 +3,12 @@
 """
 
 import click
+import hashlib
 from tortoise import Tortoise, run_async
 from tortoise.exceptions import IntegrityError
 
 from app.extensions import init_db
-from app.models import create_image
+from app.models.user import create_user
 
 
 async def init():
@@ -28,20 +29,25 @@ def initdb():
     click.echo('The database initialed.')
 
 
-async def _add_img(**kwargs):
+async def _add_user(**kwargs):
     await init_db()
     try:
-        img = await create_image(**kwargs)
+        user = await create_user(**kwargs)
     except IntegrityError as e:
         click.echo(str(e))
     else:
-        click.echo(f'Image {img.name} created!!! ID: {img.id}')
+        click.echo(f'User {user.username} created!!! ID: {user.id}')
 
 
 @cli.command()
 @click.option('--name', required=True, prompt=True)
-def add_img(name):
-    run_async(_add_img(name=name))
+@click.option('--password', required=True, prompt=True, confirmation_prompt=True)
+@click.option('--email', required=True, prompt=True)
+def adduser(name, password, email):
+    if password is None:
+        password = ''
+    password = hashlib.md5(password.encode('utf-8')).hexdigest()
+    run_async(_add_user(username=name, password=password, email=email))
 
 
 if __name__ == '__main__':
