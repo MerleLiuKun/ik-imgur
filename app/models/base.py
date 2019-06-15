@@ -9,6 +9,8 @@ class PropertyHolder(type):
     """
     定义元类 用于为 Model 的基类补充默认字段
     This follow https://github.com/dongweiming/lyanna/blob/master/models/base.py
+    魔鬼, 董大竟然魔改了 Tortoise-ORM 字段初始化的代码
+    TODO 此处先用董大版本
     """
 
     def __new__(mcs, name, bases, attrs):
