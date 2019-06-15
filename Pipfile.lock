@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3bf5cd1b84ef6eee80fa411a4e1428cc12a70e8b2c2db8f7d4998ca770e991e9"
+            "sha256": "fe32fc9b4b90b3e17ae674ed0538fdf479de97f8b58bb3135e6a83fdb6bd0399"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -26,10 +26,9 @@
         },
         "aiocontextvars": {
             "hashes": [
-                "sha256:885daf8261818767d8f7cbd79f9d4482d118f024b6586ef6e67980236a27bfa3",
-                "sha256:f027372dc48641f683c559f247bd84962becaacdc9ba711d583c3871fb5652aa"
+                "sha256:77a8fd70e774de2778357503a5b5a702a405ff458b41d4583677732cfab3b25d"
             ],
-            "version": "==0.2.2"
+            "version": "==0.1.2"
         },
         "aiofiles": {
             "hashes": [
@@ -120,13 +119,6 @@
             "index": "pypi",
             "version": "==7.0"
         },
-        "contextvars": {
-            "hashes": [
-                "sha256:f38c908aaa59c14335eeea12abea5f443646216c4e29380d7bf34d2018e2c39e"
-            ],
-            "markers": "python_version < '3.7'",
-            "version": "==2.4"
-        },
         "cos-python-sdk-v5": {
             "hashes": [
                 "sha256:0766e486ecd2b4e8f1db8499fbd95837d627895976ad97de0d771a7c169b5f7a",
@@ -175,27 +167,6 @@
                 "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
             ],
             "version": "==2.8"
-        },
-        "immutables": {
-            "hashes": [
-                "sha256:10861f2a2b86139f0c91d5073392d76117f37e84f912dc47c943c23a64008cc7",
-                "sha256:3e23eeb4bc55d57b2a97bef4c1a2891bbb731050b4167c855545797d45e84e45",
-                "sha256:4373876879f147986808f71e6ca02380192a279e8b8d45832f6fed4e7f717562",
-                "sha256:46f9122da033fecf84d7f4c6257aec780f370b20f3ce6bc521702b63ee3d99f7",
-                "sha256:5104db6102e53702af45c6b0af36e45a80970123b11a80c14e0fce48444cdbe3",
-                "sha256:59274bcb631f4fdc9731e9a4a96d16d96b3a17e29fd5e46516518f38406f678f",
-                "sha256:65a9c624e50ca5c50464dbf432996b5c4f056a411bcff5690ef4cab59f913f99",
-                "sha256:b64e0672497b884d21170ca61c693da8488d77f043650efa7911378cbbad0f2c",
-                "sha256:b70655dba00742b033310933066a2202e1cfbbb0f63841b4597cd8787974b242",
-                "sha256:c3d8c238a6f9b60355578579563773348674b6da63c1a0d7394384ed341f3d41",
-                "sha256:cd66bcd11b6a1c1a80fb8d90e25870ff2d5c705ab5eb9666355a33d3fef6ac70",
-                "sha256:d59310fc4f97c1ff8c3660cb98032db266ac0c285a86ca7a512e8e84a95f44c9",
-                "sha256:d71d1c822498646143270580dd6f743bb31ab89ae0ded8b2307c356d3a00f1c0",
-                "sha256:f53da698b42db83cfb1f5073560838051430798c8d8e34a57a27031edbc3041d",
-                "sha256:f958ba15745e30d3a38e3c9fcead8496037135bb21c78c0f925c104abba3a6fa",
-                "sha256:ff95e2aa618eed1a0ef4479938f18f3522c89562b9bbb59d677597c0337569dd"
-            ],
-            "version": "==0.9"
         },
         "multidict": {
             "hashes": [
@@ -265,7 +236,6 @@
         },
         "pycparser": {
             "hashes": [
-                "sha256:8d4fedc6163a9331f563d80f87088304efe04a74be5f5a261b06c8435118ceb0",
                 "sha256:a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
             ],
             "version": "==2.19"
@@ -313,12 +283,10 @@
             ],
             "version": "==1.12.0"
         },
-        "tortoise-orm": {
-            "hashes": [
-                "sha256:094ce235dde153b598812244be1736e59fdd53c09b32140eb5e732b855af60bf"
-            ],
-            "index": "pypi",
-            "version": "==0.12.0"
+        "tortoise": {
+            "editable": true,
+            "git": "https://github.com/dongweiming/tortoise-orm.git",
+            "ref": "56f2ac34611c7a733cc4693f1f01c4537760e580"
         },
         "ujson": {
             "hashes": [
