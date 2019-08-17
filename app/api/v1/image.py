@@ -43,7 +43,7 @@ async def uploader(request):
             'msg': 'Must provide a file.'
         })
 
-    save_type = request.form.get('save_type')
+    save_type = request.form.get('save_type', '')
 
     if not save_type:
         local_path = config.UPLOAD_FOLDER

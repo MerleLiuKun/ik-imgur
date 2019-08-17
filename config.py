@@ -12,7 +12,7 @@ BASE_CHAR = '9HfX34CFYmtWnpJsBVy8jlSNorichga2w1bEPvxLTA6MduKRQIe0qDUk5OGZz7'
 # up file
 ALLOWED_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.gif'}
 MAX_FILE_SIZE = 1024 * 1024 * 10
-UPLOAD_FOLDER = 'path/to/upload'
+UPLOAD_FOLDER = 'path/to/upload/'
 VISIT_URI = 'your domain'
 
 # 对于上传到云存储的只保存到临时路径，定时清理
