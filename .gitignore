@@ -123,5 +123,8 @@ node_modules/
 package-lock.json
 package.json
 
+# fabric
+fabfile.py
+
 # gunicorn ini
 prod.conf
