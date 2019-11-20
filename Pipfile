@@ -1,6 +1,6 @@
 [[source]]
 name = "pypi"
-url = "https://pypi.org/simple"
+url = "https://mirrors.aliyun.com/pypi/simple"
 verify_ssl = true
 
 [dev-packages]
@@ -13,9 +13,9 @@ click = ">=7.0"
 Pillow= ">=6.0.0"
 cos-python-sdk-v5 = ">=1.6.9"
 sentry-sdk = "==0.9.0"
-aiomysql = ">=0.0.20"
-tortoise-orm = ">=0.13.0"
+aiomysql = "*"
+tortoise-orm = "*"
 gunicorn = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
