@@ -2,11 +2,6 @@ import hashlib
 import time
 from pathlib import Path
 
-try:
-    from time import time_ns as current_time
-except ImportError:
-    from time import time as current_time
-
 import config
 
 
@@ -30,7 +25,7 @@ CONSTANT_LENGTH = len(CONSTANT_CHAR)
 
 # TODO
 async def generate_hash_id():
-    source = int(current_time())
+    source = int(time.time_ns())
     code_arr = ''
     while source > 0:
         code_arr += CONSTANT_CHAR[source % CONSTANT_LENGTH]
