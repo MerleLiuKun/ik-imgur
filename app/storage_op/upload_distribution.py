@@ -2,6 +2,7 @@
     提供函数给外部API,
 """
 from .cos_api import cos_client
+from .minio_api import minio_api
 
 
 async def upload_file(s_type, origin_path, key):
@@ -17,6 +18,11 @@ async def upload_file(s_type, origin_path, key):
         return True, {}
     elif s_type == 'COS':
         resp = cos_client.upload(
+            origin_path=origin_path,
+            key=key
+        )
+    elif s_type == 'minio':
+        resp = minio_api.upload(
             origin_path=origin_path,
             key=key
         )

@@ -25,6 +25,13 @@ COS_REGION = ''
 COS_BUCKET = ''
 COS_VISIT_URI = ''
 
+# MinIO
+MINIO_SECRET_ID = ''
+MINIO_SECRET_KEY = ''
+MINIO_SOURCE_URI = ''
+MINIO_BUCKET = ''
+MINIO_VISIT_URI = ''
+
 try:
     from local_settings import *  # noqa
 except ImportError:
