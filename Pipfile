@@ -16,6 +16,7 @@ sentry-sdk = "==0.9.0"
 aiomysql = "*"
 tortoise-orm = "*"
 gunicorn = "*"
+minio = "*"
 
 [requires]
 python_version = "3.7"

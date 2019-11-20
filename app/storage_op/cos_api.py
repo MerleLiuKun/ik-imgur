@@ -23,16 +23,17 @@ class CosApi:
             self.client = CosS3Client(cos_config)
 
     def upload(self, origin_path, key):
-        try:
-            resp = self.client.upload_file(
-                Bucket=config.COS_BUCKET,
-                LocalFilePath=origin_path,
-                Key=key,
-            )
-            return True, resp
-        except CosServiceError as e:
-            print("Exception in COS upload. errors: {}".format(e.get_digest_msg()))
-            return False, {'msg': e.get_error_msg()}
+        if self.client is not None:
+            try:
+                resp = self.client.upload_file(
+                    Bucket=config.COS_BUCKET,
+                    LocalFilePath=origin_path,
+                    Key=key,
+                )
+                return True, resp
+            except CosServiceError as e:
+                print("Exception in COS upload. errors: {}".format(e.get_digest_msg()))
+                return False, {'msg': e.get_error_msg()}
 
 
 cos_client = CosApi()

@@ -27,6 +27,8 @@ def build_visit_uri(s_type):
         return config.VISIT_URI
     elif s_type == 'COS':
         return config.COS_VISIT_URI
+    elif s_type == 'minio':
+        return config.MINIO_BUCKET
     else:
         return ''
 
